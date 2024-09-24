@@ -7,10 +7,10 @@ jobs:
   scrape:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3  # Updated to v3
+      - uses: actions/checkout@v4  # Updated to v4
       
       - name: Set up Python
-        uses: actions/setup-python@v4  # Updated to v4
+        uses: actions/setup-python@v5  # Updated to v5
         with:
           python-version: '3.9'  # Specify a version
       
@@ -22,7 +22,7 @@ jobs:
         run: python ipad_scraper.py
         
       - name: Upload CSV results
-        uses: actions/upload-artifact@v3  # Ensure this is still v3
+        uses: actions/upload-artifact@v3  # This remains the same as v3 is still valid
         with:
           name: scraper-results
           path: output.csv  # Adjust path as necessary
