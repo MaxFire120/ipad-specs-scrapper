@@ -1,20 +1,22 @@
 name: iPad Scraper
 
 on:
-  schedule:
-    - cron: '0 0 * * *'  # Runs daily at midnight
+  workflow_dispatch:  # Allows manual triggering from GitHub
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.x'
+          python-version: '3.9'  # Specify a version
+      
       - name: Install dependencies
         run: |
           pip install beautifulsoup4 requests
+      
       - name: Run scraper
         run: python ipad_scraper.py
