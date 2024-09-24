@@ -22,7 +22,7 @@ jobs:
         run: python ipad_scraper.py
         
       - name: Upload CSV results
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3  # Updated to v3
         with:
           name: scraper-results
           path: output.csv  # Adjust path as necessary
